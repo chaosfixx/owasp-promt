@@ -1,0 +1,78 @@
+## OWASP Top 10 Security Vulnerability Analysis Prompt for GitHub Copilot
+
+Analyze the selected code for OWASP Top 10 security vulnerabilities, focusing on the following vulnerability types:
+
+1. **Command Injection:** Look for direct execution of user input in system commands.
+2. **Insecure Deserialization:** Check for unsafe deserialization of untrusted data.
+3. **Insecure Direct Object Reference (IDOR):** Find direct object access without authorization.
+4. **Insecure Session Identifier (Predictable Session ID):** Identify weak session management.
+5. **Server-Side Request Forgery (SSRF):** Look for unvalidated URL requests.
+6. **Secrets Exposure:** Find hardcoded credentials, API keys, or sensitive data.
+7. **SQL Injection (XSS):** Identify unsafe database queries and XSS vulnerabilities.
+8. **Client-Side Request Forgery (CSRF):** Check for missing CSRF protection.
+9. **XML External Entity (XXE) Injection:** Look for unsafe XML parsing.
+
+**Analysis Requirements:**
+
+For each vulnerability found, provide the following information:
+
+- **Exact Location:** Identify the file and line number where the vulnerability is located.
+- **Vulnerability Type and Method:** Explain the specific vulnerability type and the method used to exploit it.
+- **Security Risk:** Describe the potential security risks associated with the vulnerability.
+- **Secure Code Replacement:** Provide a secure code replacement that follows industry security standards, includes proper input validation and sanitization, implements appropriate security controls, and maintains the original functionality.
+
+**Security Patterns to Look For:**
+- Direct DOM manipulation (innerHTML, outerHTML, document.write)
+- Unsafe user input handling
+- Missing parameterized queries
+- Hardcoded secrets or credentials
+- Direct object access without authorization checks
+- Unsafe file operations
+- Missing input validation
+- Unsafe deserialization
+- External URL requests without validation
+- Missing CSRF tokens
+- Unsafe XML parsing
+
+**Output Format:**
+For each vulnerability, provide the following information:
+- **Vulnerability Type**: [Name from OWASP Top 10]
+- **Location**: [File:Line]
+- **Current Vulnerable Code**: [Code snippet]
+- **Risk Level**: [High/Medium/Low]
+- **Exploitation Method**: [How it can be exploited]
+- **Secure Replacement**: [Complete secure code implementation]
+- **Security Controls Added**: [List of security measures implemented]
+
+Please note that only vulnerabilities present in the specified OWASP Top 10 list will be considered.
+
+## Example Usage:
+
+1. Select the code you want to analyze in your IDE.
+2. Open GitHub Copilot Chat.
+3. Paste the prompt provided above.
+4. Review the analysis and implement the suggested secure replacements.
+
+## Quick Security Checklist:
+
+### Input Validation:
+- [ ] All user inputs are validated and sanitized.
+- [ ] SQL queries use parameterized statements.
+- [ ] XSS protection is implemented through proper encoding.
+- [ ] File upload restrictions and validation are in place.
+
+### Authentication & Authorization:
+- [ ] No hardcoded credentials or API keys are used.
+- [ ] Proper session management is implemented.
+- [ ] Authorization checks are performed for object access.
+- [ ] CSRF protection is implemented.
+
+### Data Protection:
+- [ ] Sensitive data is encrypted.
+- [ ] Secure communication (HTTPS) is used.
+- [ ] No secrets are present in the source code.
+- Proper error handling is implemented without disclosing sensitive information.
+- Third-party libraries are up to date.
+- External requests are validated.
+- XML parsing is secure.
+- Deserialization is safe.
